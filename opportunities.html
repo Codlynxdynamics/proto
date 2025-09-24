@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opportunities | NEXTEP</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .nextep-font { font-family: 'Poppins', sans-serif; }
+        .bg-primary { background-color: #1A3DFF; }
+        .text-primary { color: #1A3DFF; }
+        .bg-growth { background-color: #2DCB8E; }
+        .text-growth { color: #2DCB8E; }
+        .bg-energy { background-color: #F4B942; }
+        .text-energy { color: #F4B942; }
+        .card-shadow { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .rounded-lg { border-radius: 12px; }
+        .active-filter { background-color: #1A3DFF; color: white; }
+         .active {
+        border-bottom: 2px solid #1D4ED8; /* Blue underline */
+    }
+    </style>
+</head>
+<body class="nextep-font bg-gray-50">
+
+    <!-- Header -->
+<header class="sticky top-0 z-50 bg-white shadow-sm">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <!-- Logo -->
+    <div class="flex items-center">
+      <img src="logo.jpg" alt="Logo" class="w-10 h-10 rounded-full object-cover mr-2">
+      <span class="text-2xl font-bold text-primary">NEXTEP</span>
+    </div>
+
+    <!-- Navigation Menu -->
+    <div class="flex gap-6 items-center">
+      <button onclick="navigate(this, 'index.html')" 
+        class="nav-btn text-black font-medium hover:text-blue-600 transition duration-300">
+        Home
+      </button>
+      <button onclick="navigate(this, 'connect.html')" 
+        class="nav-btn text-black font-medium hover:text-blue-600 transition duration-300">
+        Connect
+      </button>
+      <button onclick="navigate(this, 'blog.html')" 
+        class="nav-btn text-black font-medium hover:text-blue-600 transition duration-300">
+        Blog
+      </button>
+      <button onclick="navigate(this, 'org.html')" 
+        class="nav-btn text-black font-medium hover:text-blue-600 transition duration-300">
+        Organizer
+      </button>
+      <button onclick="navigate(this, 'profile.html')" 
+        class="nav-btn text-black font-medium hover:text-blue-600 transition duration-300">
+        My Profile
+      </button>
+      <button onclick="navigate(this, 'waitlist.html')" 
+        class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
+        Join Waitlist
+      </button>
+    </div>
+  </div>
+</header>
+
+    <!-- Opportunities Hero -->
+    <section class="bg-gradient-to-r from-blue-50 to-indigo-50 py-12">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Discover Opportunities</h1>
+            <p class="text-lg text-gray-600 max-w-2xl">Find workshops, hackathons, competitions, and internships tailored to your interests.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-8">
+        <div class="container mx-auto px-4">
+            <!-- Search and Filters -->
+            <div class="mb-8">
+                <div class="bg-white rounded-lg card-shadow p-4 mb-6 relative">
+                    <input type="text" id="searchInput" placeholder="Search opportunities..." class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition">
+                </div>
+                
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <button class="filter-btn active-filter px-4 py-2 rounded-lg text-sm font-medium transition" data-filter="all">All Opportunities</button>
+                    <button class="filter-btn bg-white text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 transition" data-filter="hackathon">Hackathons</button>
+                    <button class="filter-btn bg-white text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 transition" data-filter="workshop">Workshops</button>
+                    <button class="filter-btn bg-white text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 transition" data-filter="competition">Competitions</button>
+                    <button class="filter-btn bg-white text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 transition" data-filter="internship">Internships</button>
+                    <button class="filter-btn bg-white text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 transition" data-filter="conference">Conferences</button>
+                </div>
+            </div>
+            
+            <!-- Opportunities Grid -->
+            <div id="opportunitiesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Example Opportunity Card -->
+                <div class="opportunity-card bg-white rounded-lg card-shadow overflow-hidden" data-category="hackathon">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center">
+                        <img src="http://static.photos/technology/640x360/2" alt="Hackathon" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold">Blockchain Hackathon</h3>
+                            <button class="text-gray-400 hover:text-energy transition">
+                                <i data-feather="bookmark"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i data-feather="map-pin" class="mr-1 w-4 h-4"></i><span>Online</span>
+                            <span class="mx-2">•</span>
+                            <i data-feather="calendar" class="mr-1 w-4 h-4"></i><span>Jan 20-22</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Build decentralized applications on Ethereum. Win prizes and get mentorship from industry experts.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs bg-blue-100 text-primary px-2 py-1 rounded">Hackathon</span>
+                            <button onclick="window.location.href='opportunity-detail.html'" class="text-primary text-sm font-medium hover:underline">View Details →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="opportunity-card bg-white rounded-lg card-shadow overflow-hidden" data-category="workshop">
+                    <div class="h-48 bg-gradient-to-r from-green-500 to-teal-600 flex items-center justify-center">
+                        <img src="http://static.photos/education/640x360/3" alt="Workshop" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold">UI/UX Design Workshop</h3>
+                            <button class="text-energy">
+                                <i data-feather="bookmark"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i data-feather="map-pin" class="mr-1 w-4 h-4"></i>
+                            <span>Delhi</span>
+                            <span class="mx-2">•</span>
+                            <i data-feather="calendar" class="mr-1 w-4 h-4"></i>
+                            <span>Dec 10</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Learn design principles, Figma basics, and create your first prototype in this hands-on workshop.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs bg-green-100 text-growth px-2 py-1 rounded">Workshop</span>
+                            <button onclick="window.location.href='opportunity-detail.html'" class="text-primary text-sm font-medium hover:underline">View Details →</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="opportunity-card bg-white rounded-lg card-shadow overflow-hidden" data-category="workshop">
+                    <div class="h-48 bg-gradient-to-r from-green-500 to-teal-600 flex items-center justify-center">
+                        <img src="http://static.photos/education/640x360/3" alt="Workshop" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold">UI/UX Design Workshop</h3>
+                            <button class="text-energy">
+                                <i data-feather="bookmark"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i data-feather="map-pin" class="mr-1 w-4 h-4"></i>
+                            <span>Delhi</span>
+                            <span class="mx-2">•</span>
+                            <i data-feather="calendar" class="mr-1 w-4 h-4"></i>
+                            <span>Dec 10</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Learn design principles, Figma basics, and create your first prototype in this hands-on workshop.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs bg-green-100 text-growth px-2 py-1 rounded">Workshop</span>
+                            <button onclick="window.location.href='opportunity-detail.html'" class="text-primary text-sm font-medium hover:underline">View Details →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="opportunity-card bg-white rounded-lg card-shadow overflow-hidden" data-category="competition">
+                    <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center">
+                        <img src="http://static.photos/business/640x360/2" alt="Competition" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold">Business Case Challenge</h3>
+                            <button class="text-gray-400 hover:text-energy transition">
+                                <i data-feather="bookmark"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i data-feather="map-pin" class="mr-1 w-4 h-4"></i>
+                            <span>Hybrid</span>
+                            <span class="mx-2">•</span>
+                            <i data-feather="calendar" class="mr-1 w-4 h-4"></i>
+                            <span>Feb 5-10</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Solve real business problems from Fortune 500 companies. Great for your resume and networking.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Competition</span>
+                            <button onclick="window.location.href='opportunity-detail.html'" class="text-primary text-sm font-medium hover:underline">View Details →</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="opportunity-card bg-white rounded-lg card-shadow overflow-hidden" data-category="competition">
+                    <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center">
+                        <img src="http://static.photos/business/640x360/2" alt="Competition" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold">Business Case Challenge</h3>
+                            <button class="text-gray-400 hover:text-energy transition">
+                                <i data-feather="bookmark"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i data-feather="map-pin" class="mr-1 w-4 h-4"></i>
+                            <span>Hybrid</span>
+                            <span class="mx-2">•</span>
+                            <i data-feather="calendar" class="mr-1 w-4 h-4"></i>
+                            <span>Feb 5-10</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Solve real business problems from Fortune 500 companies. Great for your resume and networking.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Competition</span>
+                            <button onclick="window.location.href='opportunity-detail.html'" class="text-primary text-sm font-medium hover:underline">View Details →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="opportunity-card bg-white rounded-lg card-shadow overflow-hidden" data-category="internship">
+                    <div class="h-48 bg-gradient-to-r from-yellow-500 to-orange-600 flex items-center justify-center">
+                        <img src="http://static.photos/office/640x360/1" alt="Internship" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold">Summer Internship Program</h3>
+                            <button class="text-gray-400 hover:text-energy transition">
+                                <i data-feather="bookmark"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i data-feather="map-pin" class="mr-1 w-4 h-4"></i>
+                            <span>Bangalore</span>
+                            <span class="mx-2">•</span>
+                            <i data-feather="calendar" class="mr-1 w-4 h-4"></i>
+                            <span>May-July</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">8-week paid internship for engineering students interested in software development and AI.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs bg-yellow-100 text-energy px-2 py-1 rounded">Internship</span>
+                            <button onclick="window.location.href='opportunity-detail.html'" class="text-primary text-sm font-medium hover:underline">View Details →</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="opportunity-card bg-white rounded-lg card-shadow overflow-hidden" data-category="internship">
+                    <div class="h-48 bg-gradient-to-r from-yellow-500 to-orange-600 flex items-center justify-center">
+                        <img src="http://static.photos/office/640x360/1" alt="Internship" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold">Summer Internship Program</h3>
+                            <button class="text-gray-400 hover:text-energy transition">
+                                <i data-feather="bookmark"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i data-feather="map-pin" class="mr-1 w-4 h-4"></i>
+                            <span>Bangalore</span>
+                            <span class="mx-2">•</span>
+                            <i data-feather="calendar" class="mr-1 w-4 h-4"></i>
+                            <span>May-July</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">8-week paid internship for engineering students interested in software development and AI.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs bg-yellow-100 text-energy px-2 py-1 rounded">Internship</span>
+                            <button onclick="window.location.href='opportunity-detail.html'" class="text-primary text-sm font-medium hover:underline">View Details →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="opportunity-card bg-white rounded-lg card-shadow overflow-hidden" data-category="conference">
+                    <div class="h-48 bg-gradient-to-r from-red-500 to-pink-600 flex items-center justify-center">
+                        <img src="http://static.photos/education/640x360/4" alt="Conference" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold">Tech Leadership Summit</h3>
+                            <button class="text-gray-400 hover:text-energy transition">
+                                <i data-feather="bookmark"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i data-feather="map-pin" class="mr-1 w-4 h-4"></i>
+                            <span>Mumbai</span>
+                            <span class="mx-2">•</span>
+                            <i data-feather="calendar" class="mr-1 w-4 h-4"></i>
+                            <span>Mar 15-17</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Learn from tech leaders at Google, Microsoft, and startups about the future of technology.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded">Conference</span>
+                            <button onclick="window.location.href='opportunity-detail.html'" class="text-primary text-sm font-medium hover:underline">View Details →</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="opportunity-card bg-white rounded-lg card-shadow overflow-hidden" data-category="conference">
+                    <div class="h-48 bg-gradient-to-r from-red-500 to-pink-600 flex items-center justify-center">
+                        <img src="http://static.photos/education/640x360/4" alt="Conference" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold">Tech Leadership Summit</h3>
+                            <button class="text-gray-400 hover:text-energy transition">
+                                <i data-feather="bookmark"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i data-feather="map-pin" class="mr-1 w-4 h-4"></i>
+                            <span>Mumbai</span>
+                            <span class="mx-2">•</span>
+                            <i data-feather="calendar" class="mr-1 w-4 h-4"></i>
+                            <span>Mar 15-17</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Learn from tech leaders at Google, Microsoft, and startups about the future of technology.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded">Conference</span>
+                            <button onclick="window.location.href='opportunity-detail.html'" class="text-primary text-sm font-medium hover:underline">View Details →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="logo.jpg" alt="Logo" class="w-10 h-10 rounded-full object-cover mr-2">
+                        <span class="text-2xl font-bold text-white">NEXTEP</span>
+                    </div>
+                    <p class="text-gray-400">Helping students discover their next big opportunity since 2025.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About</a></li>
+                        <li><a href="home.html" class="text-gray-400 hover:text-white transition">Opportunities</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="text-center flex flex-col items-center space-y-4">
+    <h4 class="text-lg font-semibold text-white">Connect</h4>
+
+    <!-- Social Icons Vertical -->
+<div class="grid grid-cols-2 gap-3 items-start text-white">
+    <!-- Icons Column -->
+    <div class="flex flex-col items-center space-y-3">
+        <i data-feather="instagram" class="hover:text-blue-300 transition cursor-pointer"></i>
+        <i data-feather="linkedin" class="hover:text-blue-300 transition cursor-pointer"></i>
+        <i data-feather="youtube" class="hover:text-blue-300 transition cursor-pointer"></i>
+    </div>
+
+    <!-- Text Column -->
+    <div class="flex flex-col space-y-3">
+        <a href="https://www.instagram.com/nextep.students/" target="_blank" class="hover:text-blue-300 transition">nextep.students</a>
+        <a href="https://nextepforstudentslinkedin.com/company" target="_blank" class="hover:text-blue-300 transition">Nextep</a>
+        <a href="#" class="hover:text-blue-300 transition">YouTube</a>
+    </div>
+</div>
+
+<!-- Email with Icon -->
+<div class="flex items-center space-x-2 text-white mt-4">
+    <i data-feather="mail" class="hover:text-blue-300 transition cursor-pointer"></i>
+    <a href="mailto:nextepforstudents@gmail.com" class="underline hover:text-blue-300">nextepforstudents@gmail.com</a>
+</div>
+
+<script>
+    feather.replace(); // Load Feather icons
+</script>
+</div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-2">Stay updated with new opportunities.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="bg-gray-800 text-white px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary w-full">
+                        <button class="bg-primary text-white px-4 py-2 rounded-r-lg hover:bg-blue-700 transition">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 NEXTEP. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    feather.replace();
+
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const opportunityCards = document.querySelectorAll('.opportunity-card');
+    const searchInput = document.getElementById('searchInput');
+
+    // Filter and search function
+    function filterOpportunities(filter, search='') {
+        opportunityCards.forEach(card => {
+            const matchesFilter = filter === 'all' || card.dataset.category === filter;
+            const matchesSearch = card.querySelector('h3').innerText.toLowerCase().includes(search.toLowerCase());
+            card.style.display = (matchesFilter && matchesSearch) ? 'block' : 'none';
+        });
+    }
+
+    // Filter button click
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterButtons.forEach(b => b.classList.remove('active-filter', 'bg-white', 'text-gray-700'));
+            btn.classList.add('active-filter');
+            filterOpportunities(btn.dataset.filter, searchInput.value);
+        });
+    });
+
+    // Search input
+    searchInput.addEventListener('input', () => {
+        const activeFilter = document.querySelector('.filter-btn.active-filter').dataset.filter;
+        filterOpportunities(activeFilter, searchInput.value);
+    });
+
+    // Initial load: show all
+    filterOpportunities('all');
+
+    // Function to set active underline on click
+    function navigate(button, url) {
+        document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        window.location.href = url;
+    }
+
+    // Keep underline on current page after reload
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        if (btn.getAttribute('onclick').includes(currentPage)) {
+            btn.classList.add('active');
+        }
+    });
+</script>
+<script>
+  function navigate(button, page) {
+    // Remove active style from all buttons
+    document.querySelectorAll(".nav-btn").forEach(btn => {
+      btn.classList.remove("text-blue-600", "font-bold");
+      btn.classList.add("text-black");
+    });
+
+    // Add active style to clicked button
+    button.classList.remove("text-black");
+    button.classList.add("text-blue-600", "font-bold");
+
+    // Navigate to the page
+    window.location.href = page;
+  }
+
+  // Highlight current page on load
+  window.addEventListener("DOMContentLoaded", () => {
+    const currentPath = window.location.pathname.split("/").pop();
+    document.querySelectorAll(".nav-btn").forEach(btn => {
+      if (btn.getAttribute("onclick").includes(currentPath)) {
+        btn.classList.add("text-blue-600", "font-bold");
+        btn.classList.remove("text-black");
+      }
+    });
+  });
+</script>
+</body>
+</html>

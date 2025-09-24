@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXTEP Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        .nextep-font {
+            font-family: 'Poppins', sans-serif;
+        }
+        .bg-primary {
+            background-color: #1A3DFF;
+        }
+        .text-primary {
+            color: #1A3DFF;
+        }
+        .bg-growth {
+            background-color: #2DCB8E;
+        }
+        .text-growth {
+            color: #2DCB8E;
+        }
+        .bg-energy {
+            background-color: #F4B942;
+        }
+        .text-energy {
+            color: #F4B942;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        .rounded-lg {
+            border-radius: 12px;
+        }
+        .active-tab {
+            border-bottom: 3px solid #1A3DFF;
+            font-weight: 600;
+            color: #1A3DFF;
+        }
+         .active {
+        border-bottom: 2px solid #1D4ED8; /* Blue underline */
+    }
+    </style>
+</head>
+<body class="nextep-font bg-gray-50">
+    <!-- Header -->
+<header class="sticky top-0 z-50 bg-white shadow-sm">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <!-- Logo -->
+    <div class="flex items-center">
+      <img src="logo.jpg" alt="Logo" class="w-10 h-10 rounded-full object-cover mr-2">
+      <span class="text-2xl font-bold text-primary">NEXTEP</span>
+    </div>
+
+    <!-- Navigation Menu -->
+    <div class="flex gap-6 items-center">
+      <button onclick="navigate(this, 'index.html')" 
+        class="nav-btn text-black font-medium hover:text-blue-600 transition duration-300">
+        Home
+      </button>
+      <button onclick="navigate(this, 'connect.html')" 
+        class="nav-btn text-black font-medium hover:text-blue-600 transition duration-300">
+        Connect
+      </button>
+      <button onclick="navigate(this, 'blog.html')" 
+        class="nav-btn text-black font-medium hover:text-blue-600 transition duration-300">
+        Blog
+      </button>
+      <button onclick="navigate(this, 'org.html')" 
+        class="nav-btn text-black font-medium hover:text-blue-600 transition duration-300">
+        Organizer
+      </button>
+      <button onclick="navigate(this, 'profile.html')" 
+        class="nav-btn text-black font-medium hover:text-blue-600 transition duration-300">
+        My Profile
+      </button>
+      <button onclick="navigate(this, 'waitlist.html')" 
+        class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
+        Join Waitlist
+      </button>
+    </div>
+  </div>
+</header>
+
+    <!-- Main Content -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <!-- Featured Opportunities -->
+            <div class="mb-12">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Featured Opportunities</h2>
+                    <a href="opportunities.html" class="text-primary hover:underline flex items-center">
+                        View all <i data-feather="chevron-right" class="ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Opportunity Card 1 -->
+                    <div class="bg-white rounded-lg card-shadow overflow-hidden" data-aos="fade-up">
+                        <div class="h-40 bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center">
+                            <img src="http://static.photos/technology/640x360/1" alt="Hackathon" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-lg font-bold">Tech Innovators Hackathon</h3>
+                                <button class="text-gray-400 hover:text-energy transition">
+                                    <i data-feather="bookmark"></i>
+                                </button>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500 mb-3">
+                                <i data-feather="map-pin" class="mr-1 w-4 h-4"></i>
+                                <span>Online</span>
+                                <span class="mx-2">•</span>
+                                <i data-feather="calendar" class="mr-1 w-4 h-4"></i>
+                                <span>Dec 15-17</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Build innovative solutions for real-world problems in this 48-hour hackathon with prizes worth ₹1,00,000.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs bg-blue-100 text-primary px-2 py-1 rounded">Hackathon</span>
+                                <button onclick="window.location.href='opportunity-detail.html'" class="text-primary text-sm font-medium hover:underline">
+                                    View Details →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Opportunity Card 2 -->
+                    <div class="bg-white rounded-lg card-shadow overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <div class="h-40 bg-gradient-to-r from-green-500 to-teal-600 flex items-center justify-center">
+                            <img src="http://static.photos/education/640x360/2" alt="Workshop" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-lg font-bold">AI & ML Workshop</h3>
+                                <button class="text-gray-400 hover:text-energy transition">
+                                    <i data-feather="bookmark"></i>
+                                </button>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500 mb-3">
+                                <i data-feather="map-pin" class="mr-1 w-4 h-4"></i>
+                                <span>Bangalore</span>
+                                <span class="mx-2">•</span>
+                                <i data-feather="calendar" class="mr-1 w-4 h-4"></i>
+                                <span>Nov 28</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Hands-on workshop covering fundamentals of Artificial Intelligence and Machine Learning with Python.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs bg-green-100 text-growth px-2 py-1 rounded">Workshop</span>
+                                <button onclick="window.location.href='opportunity-detail.html'" class="text-primary text-sm font-medium hover:underline">
+                                    View Details →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Opportunity Card 3 -->
+                    <div class="bg-white rounded-lg card-shadow overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                        <div class="h-40 bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center">
+                            <img src="http://static.photos/business/640x360/1" alt="Competition" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-lg font-bold">Startup Pitch Competition</h3>
+                                <button class="text-energy">
+                                    <i data-feather="bookmark"></i>
+                                </button>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500 mb-3">
+                                <i data-feather="map-pin" class="mr-1 w-4 h-4"></i>
+                                <span>Mumbai</span>
+                                <span class="mx-2">•</span>
+                                <i data-feather="calendar" class="mr-1 w-4 h-4"></i>
+                                <span>Jan 10-12</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Pitch your startup idea to investors and win funding up to ₹5,00,000 plus mentorship opportunities.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Competition</span>
+                                <button onclick="window.location.href='opportunity-detail.html'" class="text-primary text-sm font-medium hover:underline">
+                                    View Details →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Student Spotlight -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-bold mb-6">Student Spotlight</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Student Card 1 -->
+                    <div class="bg-white rounded-lg card-shadow p-6 flex items-center" data-aos="fade-right">
+                        <div class="w-20 h-20 rounded-full overflow-hidden mr-4">
+                            <img src="http://static.photos/people/200x200/4" alt="Student" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Neha Gupta</h3>
+                            <p class="text-gray-500 text-sm mb-2">Computer Science, IIT Delhi</p>
+                            <div class="flex flex-wrap gap-2 mb-2">
+                                <span class="text-xs bg-blue-100 text-primary px-2 py-1 rounded">Machine Learning</span>
+                                <span class="text-xs bg-green-100 text-growth px-2 py-1 rounded">Data Science</span>
+                                <span class="text-xs bg-yellow-100 text-energy px-2 py-1 rounded">Web Development</span>
+                            </div>
+                            <p class="text-gray-600 text-sm">Won 3 hackathons and participated in 8 workshops this year. Currently interning at Google.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Student Card 2 -->
+                    <div class="bg-white rounded-lg card-shadow p-6 flex items-center" data-aos="fade-left">
+                        <div class="w-20 h-20 rounded-full overflow-hidden mr-4">
+                            <img src="http://static.photos/people/200x200/5" alt="Student" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Rohan Mehta</h3>
+                            <p class="text-gray-500 text-sm mb-2">Electrical Engineering, BITS Pilani</p>
+                            <div class="flex flex-wrap gap-2 mb-2">
+                                <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">IoT</span>
+                                <span class="text-xs bg-blue-100 text-primary px-2 py-1 rounded">Robotics</span>
+                                <span class="text-xs bg-green-100 text-growth px-2 py-1 rounded">Sustainability</span>
+                            </div>
+                            <p class="text-gray-600 text-sm">Developed an award-winning smart irrigation system. Currently working on his startup.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recommended For You -->
+            <div>
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Recommended For You</h2>
+                    <button class="text-primary hover:underline flex items-center">
+                        See more <i data-feather="chevron-right" class="ml-1"></i>
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Recommended Card 1 -->
+                    <div class="bg-white rounded-lg card-shadow p-6" data-aos="fade-up">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                                <i data-feather="code" class="text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Web Dev Bootcamp</h3>
+                                <p class="text-gray-500 text-sm">by Coding Ninjas</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">4-week intensive bootcamp covering HTML, CSS, JavaScript, React, and Node.js with hands-on projects.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs bg-blue-100 text-primary px-2 py-1 rounded">Workshop</span>
+                            <span class="text-xs text-gray-500">Deadline: Dec 5</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Recommended Card 2 -->
+                    <div class="bg-white rounded-lg card-shadow p-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mr-3">
+                                <i data-feather="bar-chart-2" class="text-growth"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Data Science Challenge</h3>
+                                <p class="text-gray-500 text-sm">by Analytics Vidhya</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Solve real-world data problems and compete with students nationwide. Great for your portfolio.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs bg-green-100 text-growth px-2 py-1 rounded">Competition</span>
+                            <span class="text-xs text-gray-500">Deadline: Jan 15</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Recommended Card 3 -->
+                    <div class="bg-white rounded-lg card-shadow p-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center mr-3">
+                                <i data-feather="dollar-sign" class="text-energy"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Finance Internship</h3>
+                                <p class="text-gray-500 text-sm">by Goldman Sachs</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Summer internship program for penultimate year students interested in investment banking.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs bg-yellow-100 text-energy px-2 py-1 rounded">Internship</span>
+                            <span class="text-xs text-gray-500">Deadline: Feb 1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="logo.jpg" alt="Logo" class="w-10 h-10 rounded-full object-cover mr-2">
+                        <span class="text-2xl font-bold text-white">NEXTEP</span>
+                    </div>
+                    <p class="text-gray-400">Helping students discover their next big opportunity since 2025.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About</a></li>
+                        <li><a href="home.html" class="text-gray-400 hover:text-white transition">Opportunities</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="text-center flex flex-col items-center space-y-4">
+    <h4 class="text-lg font-semibold text-white">Connect</h4>
+
+    <!-- Social Icons Vertical -->
+<div class="grid grid-cols-2 gap-3 items-start text-white">
+    <!-- Icons Column -->
+    <div class="flex flex-col items-center space-y-3">
+        <i data-feather="instagram" class="hover:text-blue-300 transition cursor-pointer"></i>
+        <i data-feather="linkedin" class="hover:text-blue-300 transition cursor-pointer"></i>
+        <i data-feather="youtube" class="hover:text-blue-300 transition cursor-pointer"></i>
+    </div>
+
+    <!-- Text Column -->
+    <div class="flex flex-col space-y-3">
+        <a href="https://www.instagram.com/nextep.students/" target="_blank" class="hover:text-blue-300 transition">nextep.students</a>
+        <a href="https://nextepforstudentslinkedin.com/company" target="_blank" class="hover:text-blue-300 transition">Nextep</a>
+        <a href="#" class="hover:text-blue-300 transition">YouTube</a>
+    </div>
+</div>
+
+<!-- Email with Icon -->
+<div class="flex items-center space-x-2 text-white mt-4">
+    <i data-feather="mail" class="hover:text-blue-300 transition cursor-pointer"></i>
+    <a href="mailto:nextepforstudents@gmail.com" class="underline hover:text-blue-300">nextepforstudents@gmail.com</a>
+</div>
+
+<script>
+    feather.replace(); // Load Feather icons
+</script>
+</div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-2">Stay updated with new opportunities.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="bg-gray-800 text-white px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary w-full">
+                        <button class="bg-primary text-white px-4 py-2 rounded-r-lg hover:bg-blue-700 transition">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 NEXTEP. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        feather.replace();
+
+        // Function to set active underline on click
+    function navigate(button, url) {
+        document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        window.location.href = url;
+    }
+
+    // Keep underline on current page after reload
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        if (btn.getAttribute('onclick').includes(currentPage)) {
+            btn.classList.add('active');
+        }
+    });
+    </script>
+    <script>
+  function navigate(button, page) {
+    // Remove active style from all buttons
+    document.querySelectorAll(".nav-btn").forEach(btn => {
+      btn.classList.remove("text-blue-600", "font-bold");
+      btn.classList.add("text-black");
+    });
+
+    // Add active style to clicked button
+    button.classList.remove("text-black");
+    button.classList.add("text-blue-600", "font-bold");
+
+    // Navigate to the page
+    window.location.href = page;
+  }
+
+  // Highlight current page on load
+  window.addEventListener("DOMContentLoaded", () => {
+    const currentPath = window.location.pathname.split("/").pop();
+    document.querySelectorAll(".nav-btn").forEach(btn => {
+      if (btn.getAttribute("onclick").includes(currentPath)) {
+        btn.classList.add("text-blue-600", "font-bold");
+        btn.classList.remove("text-black");
+      }
+    });
+  });
+</script>
+</body>
+</html>
